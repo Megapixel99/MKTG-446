@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello World</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <p id="text">Sample Text</p>
+    <input type="button" value="Click Me!" onclick="bttnClicked()">
+  </body>
+  <script type="text/javascript">
+    function bttnClicked() {
+      fetch('/data', {method: "POST"}).then(function (response) {
+        return response.json();
+      }).then(function (res) {
+        document.getElementById("text").innerHTML = res;
+      }).catch(function (err) {
+        console.error(err);
+      });
+    }
+  </script>
+</html>
